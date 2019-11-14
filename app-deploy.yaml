@@ -1,0 +1,76 @@
+apiVersion: appsody.dev/v1beta1
+kind: AppsodyApplication
+metadata:
+  annotations:
+    architecture: x86_64
+    authoritative-source-url: registry.access.redhat.com
+    build-date: 2019-10-29T20:35:20.404230
+    commit.image.appsody.dev/author: Daniel Cleyrat <dacleyra@us.ibm.com>
+    commit.image.appsody.dev/committer: GitHub <noreply@github.com>
+    commit.image.appsody.dev/date: Thu Nov 14 10:44:36 2019 -0500
+    commit.image.appsody.dev/message: Initial commit
+    description: This image contains the Kabanero development stack for the Nodejs
+      Loopback collection
+    distribution-scope: public
+    help: For more information visit https://github.com/sclorg/s2i-nodejs-container
+    image.opencontainers.org/created: "2019-11-14T10:47:05-05:00"
+    image.opencontainers.org/revision: 0990d58f325d854858977c554a4100432be6ba3c-modified
+    k8s.io/description: Node.js 10 available as container is a base platform for building
+      and running various Node.js 10 applications and frameworks. Node.js is a platform
+      built on Chrome's JavaScript runtime for easily building fast, scalable network
+      applications. Node.js uses an event-driven, non-blocking I/O model that makes
+      it lightweight and efficient, perfect for data-intensive real-time applications
+      that run across distributed devices.
+    k8s.io/display-name: Node.js 10
+    maintainer: SoftwareCollections.org <sclorg@redhat.com>
+    name: kabanero/nodejs-loopback
+    openshift.io/expose-services: 8080:http
+    openshift.io/tags: builder,nodejs,nodejs10
+    redhat.com/build-host: cpt-1006.osbs.prod.upshift.rdu2.redhat.com
+    redhat.com/component: nodejs-10-container
+    redhat.com/deployments-dir: /opt/app-root/src
+    redhat.com/dev-mode: DEV_MODE:false
+    redhat.com/dev-mode.port: DEBUG_PORT:5858
+    redhat.com/license_terms: https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI
+    release: "54"
+    s2i.io/scripts-url: image:///usr/libexec/s2i
+    s2i.openshift.io/scripts-url: image:///usr/libexec/s2i
+    stack.appsody.dev/configured: kabanero/nodejs-loopback:0.1
+    stack.appsody.dev/created: 2019-11-08T17:23:29+0000
+    stack.appsody.dev/revision: 5eeb48d7026977e2bfcc71ec80d3783db81bcf4c
+    stack.appsody.dev/tag: kabanero/nodejs-loopback:0.1.5
+    summary: Image for Kabanero Node.js Loopback development
+    url: https://access.redhat.com/containers/#/registry.access.redhat.com/ubi8/nodejs-10/images/1-54
+    usage: s2i build <SOURCE-REPOSITORY> ubi8/nodejs-10:latest <APP-NAME>
+    vcs-ref: 6ee7553ab2fb0dc20817416392fa6025cd1003c7
+    vcs-type: git
+    vendor: Kabanero
+    version: 0.1.4
+  labels:
+    image.opencontainers.org/title: sample-nodejs-loopback
+    stack.appsody.dev/version: 0.1.5
+  name: sample-nodejs-loopback
+spec:
+  applicationImage: dev.local/sample-nodejs-loopback
+  createKnativeService: true
+  expose: true
+  livenessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /live
+      port: 3000
+    initialDelaySeconds: 5
+    periodSeconds: 2
+  readinessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /ready
+      port: 3000
+    initialDelaySeconds: 5
+    periodSeconds: 2
+    timeoutSeconds: 1
+  service:
+    port: 3000
+    type: NodePort
+  stack: nodejs-loopback
+  version: 1.0.0
