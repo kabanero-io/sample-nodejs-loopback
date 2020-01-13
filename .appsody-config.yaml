@@ -1,2 +1,2 @@
 project-name: sample-nodejs-loopback
-stack: kabanero/nodejs-loopback:0.1
+stack: docker.io/kabanerobeta/nodejs-loopback:0.1
