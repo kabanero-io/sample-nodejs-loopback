@@ -1,1 +1,1 @@
-kabanero-io/collections nodejs-loopback stack release 0.5.0
+appsody/stacks nodejs-loopback stack release java-spring-boot2-v0.3.23
