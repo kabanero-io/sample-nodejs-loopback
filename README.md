@@ -1,1 +1,1 @@
-appsody/stacks nodejs-loopback stack release java-spring-boot2-v0.3.23
+abanero-io/collections nodejs-loopback stack release 0.6.0-rc.1
